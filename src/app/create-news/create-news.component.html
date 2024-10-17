@@ -1,0 +1,100 @@
+<section>
+    <div class="container p-2">
+        <div class="tittle">
+        <h3>Add News</h3>
+        <div class="close">
+            <i class="pi pi-times"style="font-size: 1rem"></i>
+
+        </div>
+        </div>
+        <div class="form">
+            <form >
+                <div class="item">
+                    <label >News Title <span>*</span></label>
+                    <input class="titleOfNews" type="text">
+                </div>
+                <div class="item">
+                    <label >News Description <span>*</span></label>
+                    <textarea class="DescriptionOfNews"name="" id="" cols="30" rows="7"></textarea>
+                </div>
+                <div class="item">
+                    <label >News Images  <span>*</span></label>
+                    <label class="imagecontainer" for="Imageselected">
+                        <div class="imgs" >
+                            <img *ngFor="let img of selectedImages" [src]="img"class="ms-2"alt="">
+                            
+
+                        </div>
+                    </label>
+                    <input  type="file" class="d-none"  id="Imageselected" (change)="onFileSelect($event)" multiple accept="image/*">
+                </div>
+                <div class="item">
+                    <label >Youtube Video List <span>*</span></label>
+                                
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label >Published Date   <span>*</span></label>
+
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label >Publisher  <span>*</span></label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option  value="1">One</option>
+                                
+                              </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label >News Type   <span>*</span></label>
+
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <a class="add">Add Template</a>
+            </form>
+        </div>
+        <div class="table">
+            <p-table [columns]="cols" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{ col.header }}
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            {{ rowData[col.field] }}
+                        </td>
+                        <td>
+                            <i class="pi pi-trash" style="font-size:1 rem ;margin-right: 10px; color: #BF874A;"></i>
+                            <i class="pi pi-trash" style="font-size:1 rem ;margin-right: 10px; color: #BF874A;"></i>
+
+                        </td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+            <a class="Preview">Preview</a>
+
+        </div>
+    </div>
+</section>
